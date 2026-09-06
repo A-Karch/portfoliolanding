@@ -46,6 +46,12 @@ test('privacy-oriented static page policy is present', () => {
   assert.match(html, /No customer data is collected/i);
 });
 
+test('a direct written-project enquiry is available', () => {
+  assert.match(html, /mailto:andrewkarch1995@gmail\.com/);
+  assert.match(html, /Request a written quote/);
+  assert.match(html, /No call is required/);
+});
+
 test('three distinct themes are implemented', () => {
   for (const theme of ['atelier', 'signal', 'ledger']) {
     assert.match(html, new RegExp(`data-set-theme="${theme}"`));
