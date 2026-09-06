@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A configurable instant quote calculator for local service businesses. Live demo with example prices and no customer-data collection.">
+  <meta name="robots" content="index,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Instant Quote Calculator — Live Product Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="atelier">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">↗</span><span id="brand">Service business</span></div>
+      <span class="demo-label">Live product demo · example prices</span>
+      <div class="theme-picker" id="theme-picker" aria-label="Preview visual styles">
+        <span>Preview style</span>
+        <button type="button" data-set-theme="atelier" aria-pressed="true">Atelier</button>
+        <button type="button" data-set-theme="signal" aria-pressed="false">Signal</button>
+        <button type="button" data-set-theme="ledger" aria-pressed="false">Ledger</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div>
+        <p class="eyebrow" id="eyebrow">Instant estimate</p>
+        <h1 id="title">Build your estimate.</h1>
+      </div>
+      <p class="intro-copy" id="intro">Choose the work you need and see an itemised guide.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="calculator">
+      <section class="form-panel" aria-label="Estimate options">
+        <div class="section">
+          <div class="section-heading">
+            <div><span class="step">01</span><h2 id="base-label">Choose a package</h2></div>
+            <button class="reset" id="reset" type="button">Reset</button>
+          </div>
+          <div class="base-options" id="base-options" role="radiogroup" aria-labelledby="base-label"></div>
+        </div>
+        <div class="section">
+          <div class="section-heading"><div><span class="step">02</span><h2 id="extras-label">Add extras</h2></div></div>
+          <div id="extras-options"></div>
+        </div>
+        <p class="error" id="error" role="alert" hidden></p>
+      </section>
+
+      <aside class="summary" aria-label="Estimate summary">
+        <div class="summary-top">
+          <p id="estimate-label">Estimated total</p>
+          <div class="total" id="total" aria-live="polite">—</div>
+          <div class="total-note" id="total-note">Choose an option to begin</div>
+        </div>
+        <div class="summary-body">
+          <p class="empty" id="empty">Choose an option to begin.</p>
+          <ul class="breakdown" id="breakdown"></ul>
+          <p class="disclaimer" id="disclaimer">Final price is confirmed after review.</p>
+          <button class="copy" id="copy" type="button" disabled>Copy estimate</button>
+          <p class="copy-status" id="copy-status" role="status"></p>
+          <details class="summary-details" id="summary-details">
+            <summary>View the text that will be copied</summary>
+            <pre id="summary-text"></pre>
+          </details>
+        </div>
+      </aside>
+    </div>
+
+    <section class="product-note" aria-label="Product scope">
+      <p><strong>Made for service businesses.</strong> Branding, prices, currency, wording and visual style are configured for each client. This demo does not collect or send personal data.</p>
+      <a href="../../" aria-label="View more working examples">More working examples</a>
+    </section>
+
+    <section class="packages" aria-labelledby="packages-title">
+      <div class="packages-heading">
+        <p class="eyebrow">Fixed scope</p>
+        <h2 id="packages-title">Three ways to put it on a real website.</h2>
+      </div>
+      <div class="package-grid">
+        <article class="package-card">
+          <span>Starter</span><strong>€79</strong>
+          <h3>Configured calculator</h3>
+          <p>One visual style, supplied prices, up to ten choices, source files and one revision.</p>
+        </article>
+        <article class="package-card featured">
+          <span>Branded</span><strong>€149</strong>
+          <h3>Client-ready version</h3>
+          <p>Brand styling, up to twenty choices, minimums and “from” rules, two revisions and a hosted preview.</p>
+        </article>
+        <article class="package-card">
+          <span>Installed</span><strong>€249</strong>
+          <h3>Added to an existing site</h3>
+          <p>The branded calculator plus installation on one compatible website after access and scope are confirmed.</p>
+        </article>
+      </div>
+      <p class="scope-line">Written briefing is enough. Booking systems, payments, accounts, PDF generation and complex integrations are quoted separately.</p>
+    </section>
+  </main>
+
+  <footer><div class="wrap" id="footer-copy">No customer data is collected.</div></footer>
+  <script src="config.js"></script>
+  <script src="calculator.js"></script>
+</body>
+</html>
