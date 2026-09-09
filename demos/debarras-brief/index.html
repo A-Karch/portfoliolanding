@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="description" content="Démonstration indépendante d'un brief de débarras structuré en une minute.">
+  <title>Brief Débarras — Démonstration indépendante</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-bar">
+    <div class="shell demo-bar__inner">
+      <strong>Démonstration indépendante</strong>
+      <span>Aucune demande envoyée · aucune donnée enregistrée</span>
+    </div>
+  </div>
+
+  <header class="shell intro">
+    <div>
+      <p class="overline">Pré-qualification client</p>
+      <h1>Préparez votre débarras en&nbsp;60&nbsp;secondes.</h1>
+      <p class="lede">Un brief clair sur le volume, l’accès et les contraintes — prêt à copier avant de demander un devis.</p>
+    </div>
+    <div class="prepared" id="prepared" hidden>
+      <span>Concept préparé pour</span>
+      <strong id="company-name"></strong>
+    </div>
+  </header>
+
+  <main class="shell layout">
+    <form class="planner" id="planner" novalidate>
+      <section class="panel" aria-labelledby="space-heading">
+        <div class="section-heading">
+          <span>01</span>
+          <div><h2 id="space-heading">Quel espace faut-il vider&nbsp;?</h2><p>Choisissez le cas le plus proche.</p></div>
+        </div>
+        <div class="option-grid option-grid--four" id="space-options"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="volume-heading">
+        <div class="section-heading">
+          <span>02</span>
+          <div><h2 id="volume-heading">Quel volume approximatif&nbsp;?</h2><p>Une fourchette suffit pour préparer le premier échange.</p></div>
+        </div>
+        <div class="option-grid option-grid--five" id="volume-options"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="access-heading">
+        <div class="section-heading">
+          <span>03</span>
+          <div><h2 id="access-heading">Comment accède-t-on au lieu&nbsp;?</h2><p>Ces détails changent l’équipe, le matériel et la durée.</p></div>
+        </div>
+        <div class="fields">
+          <label class="field">Étage
+            <select id="floor" name="floor">
+              <option value="ground">Rez-de-chaussée</option>
+              <option value="1">1er étage</option>
+              <option value="2">2e étage</option>
+              <option value="3">3e étage</option>
+              <option value="4plus">4e étage ou plus</option>
+            </select>
+          </label>
+          <fieldset class="field fieldset">
+            <legend>Ascenseur</legend>
+            <div class="segmented">
+              <label><input type="radio" name="lift" value="yes" checked><span>Oui</span></label>
+              <label><input type="radio" name="lift" value="no"><span>Non</span></label>
+              <label><input type="radio" name="lift" value="unknown"><span>Inconnu</span></label>
+            </div>
+          </fieldset>
+          <label class="field">Distance de stationnement
+            <select id="parking" name="parking">
+              <option value="near">Moins de 10 m</option>
+              <option value="medium">10 à 30 m</option>
+              <option value="far">Plus de 30 m</option>
+              <option value="unknown">À vérifier</option>
+            </select>
+          </label>
+          <fieldset class="field fieldset">
+            <legend>Contraintes connues</legend>
+            <div class="checks">
+              <label><input type="checkbox" name="constraints" value="heavy"><span>Objet très lourd</span></label>
+              <label><input type="checkbox" name="constraints" value="narrow"><span>Passage étroit</span></label>
+              <label><input type="checkbox" name="constraints" value="waste"><span>Gravats / déchets spéciaux</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="timing-heading">
+        <div class="section-heading">
+          <span>04</span>
+          <div><h2 id="timing-heading">Quand et dans quel état&nbsp;?</h2><p>Deux dernières informations pour éviter un rappel inutile.</p></div>
+        </div>
+        <div class="fields fields--two">
+          <label class="field">Délai souhaité
+            <select id="timing" name="timing">
+              <option value="flexible">Flexible</option>
+              <option value="week">Sous 7 jours</option>
+              <option value="urgent">Sous 48 heures</option>
+              <option value="date">Date précise à convenir</option>
+            </select>
+          </label>
+          <fieldset class="field fieldset">
+            <legend>Objets potentiellement valorisables</legend>
+            <div class="segmented">
+              <label><input type="radio" name="value" value="yes"><span>Oui</span></label>
+              <label><input type="radio" name="value" value="no"><span>Non</span></label>
+              <label><input type="radio" name="value" value="unknown" checked><span>À vérifier</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </form>
+
+    <aside class="summary" aria-labelledby="summary-heading">
+      <div class="summary__top">
+        <p>Brief prêt à transmettre</p>
+        <h2 id="summary-heading"><span id="readiness">6</span>/6 informations utiles</h2>
+        <div class="meter"><span id="meter"></span></div>
+      </div>
+      <dl class="facts" id="facts"></dl>
+      <div class="summary__bottom">
+        <p class="notice"><strong>Pas de faux prix.</strong> Le professionnel confirme le tarif après les photos ou la visite, notamment selon la valeur des objets récupérables.</p>
+        <button class="copy" id="copy" type="button">Copier le brief</button>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        <details>
+          <summary>Voir le texte à copier</summary>
+          <pre id="brief-text"></pre>
+        </details>
+      </div>
+    </aside>
+  </main>
+
+  <section class="shell handoff">
+    <div><span>1</span><p><strong>Le client choisit</strong> le lieu, le volume et l’accès.</p></div>
+    <div><span>2</span><p><strong>Le site prépare</strong> une demande exploitable immédiatement.</p></div>
+    <div><span>3</span><p><strong>Votre équipe confirme</strong> avec les photos ou une visite.</p></div>
+  </section>
+
+  <footer>
+    <div class="shell">Concept non commandé, réalisé par Andrei. Il ne s’agit pas du site officiel de l’entreprise affichée. Aucun formulaire, aucun suivi publicitaire et aucun stockage de données.</div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
